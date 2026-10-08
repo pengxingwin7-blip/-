@@ -1,0 +1,23 @@
+{
+  "_文件说明": "==================== Layer 4 · 机器输入文件 ====================",
+  "_本文件名": "ADCT_20261007_machine_input.json",
+  "_定位": "福尔摩斯的直接结构化输入，无需人工解读，供AI直接消费",
+  "scenario_inputs": {"direction_verdict": "NEUTRAL", "direction_lean": "SHORT_BIAS", "rolling_layering_count": 2, "rolling_layering_volume": 14246, "liquidity_void_count": 0, "liquidity_void_volume": 0},
+  "critical_events_for_holmes": [
+    {"rank": 1, "event_id": "670aa84c", "time_et": "15:58", "price": 1.42, "price_zone": "HIGH", "volume": 144961, "type": "FRAG_ICE+ICE+RELOAD_A_HIGH_1958_2000", "ret_300s_bps": -245.5, "vol_to_price_drive": -16.94},
+    {"rank": 2, "event_id": "2a9d697c", "time_et": "15:58", "price": 1.425, "price_zone": "HIGH", "volume": 123041, "type": "FRAG_ICE+ICE_B_HIGH_1958_2001", "ret_300s_bps": -279.72, "vol_to_price_drive": -22.73},
+    {"rank": 3, "event_id": "d3efaad1", "time_et": "14:39", "price": 1.42, "price_zone": "HIGH", "volume": 26674, "type": "FRAG_ICE+ICE_A_HIGH_1839_1841", "ret_300s_bps": 35.21, "vol_to_price_drive": 13.2},
+    {"rank": 4, "event_id": "70c1fc7e", "time_et": "10:38", "price": 1.35, "price_zone": "MID", "volume": 12863, "type": "FRAG_ICE_A_MID_1438_1438", "ret_300s_bps": 111.66, "vol_to_price_drive": 86.81},
+    {"rank": 5, "event_id": "b801232f", "time_et": "10:47", "price": 1.36, "price_zone": "MID", "volume": 12698, "type": "FRAG_ICE_B_MID_1447_1449", "ret_300s_bps": 148.15, "vol_to_price_drive": 116.67},
+    {"rank": 6, "event_id": "a5363e18", "time_et": "15:58", "price": 1.43, "price_zone": "HIGH", "volume": 116560, "type": "CANCEL+LAYERING_A_HIGH_1958_2000", "ret_300s_bps": -211.27, "vol_to_price_drive": -18.13},
+    {"rank": 7, "event_id": "2f10abcf", "time_et": "14:36", "price": 1.395, "price_zone": "HIGH", "volume": 50256, "type": "CANCEL+LAYERING_B_HIGH_1836_1841", "ret_300s_bps": 178.57, "vol_to_price_drive": 35.53},
+    {"rank": 8, "event_id": "13a19850", "time_et": "15:57", "price": 1.41, "price_zone": "HIGH", "volume": 38695, "type": "CANCEL_B_HIGH_1957_1959", "ret_300s_bps": -211.27, "vol_to_price_drive": -54.6},
+    {"rank": 9, "event_id": "dc183a76", "time_et": "10:11", "price": 1.3199, "price_zone": "MID", "volume": 71832, "type": "TRF_N_MID_1411_1414", "ret_300s_bps": 38.02, "vol_to_price_drive": 5.29},
+    {"rank": 10, "event_id": "fa9eb153", "time_et": "15:02", "price": 1.425, "price_zone": "HIGH", "volume": 63069, "type": "TRF_N_HIGH_1902_1905", "ret_300s_bps": -69.69, "vol_to_price_drive": -11.05}
+  ],
+  "rolling_layering_events_for_holmes": [
+    {"candidate_id": "4e049aeb475b", "micro_cluster_id": "2f10abcf2ced", "subtype": "rolling_bid_layering_up", "subtype_zh": "买侧滚动托价：撤单后向上逐tick重挂", "side": "B", "price": 1.4, "zone": "HIGH", "volume": 8400, "event_count": 3, "fill_ratio": 0.0, "duration_s": 145.8, "ret_300s": 178.57, "spoof_color": "RED", "confidence": 44.0, "time_et": "14:39", "raw_event_ids": "164976488602750251,282574507799185,282574507811308"},
+    {"candidate_id": "1483562df47b", "micro_cluster_id": "a5363e187d86", "subtype": "rolling_ask_layering_down", "subtype_zh": "卖侧滚动压价：撤单后向下逐tick重挂", "side": "A", "price": 1.43, "zone": "HIGH", "volume": 5846, "event_count": 3, "fill_ratio": 0.0, "duration_s": 0.1, "ret_300s": -279.72, "spoof_color": "BLUE", "confidence": 44.0, "time_et": "15:59", "raw_event_ids": "282574513588435,282574513589623,282574513589677"}
+  ],
+  "_注释_critical_events": "取自Layer2/3同一份T1排序结果的前10条，保证三层文件事件集合一致"
+}
