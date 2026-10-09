@@ -1,0 +1,14 @@
+{
+  "_文件说明": "==================== Layer 4 · 机器输入文件 ====================",
+  "_本文件名": "SVCO_20261008_machine_input.json",
+  "_定位": "福尔摩斯的直接结构化输入，无需人工解读，供AI直接消费",
+  "scenario_inputs": {"direction_verdict": "NEUTRAL", "direction_lean": "LONG_BIAS", "rolling_layering_count": 0, "rolling_layering_volume": 0, "liquidity_void_count": 0, "liquidity_void_volume": 0},
+  "critical_events_for_holmes": [
+    {"rank": 1, "event_id": "0d9e5a85", "time_et": "11:40", "price": 8.0, "price_zone": "LOW", "volume": 34344, "type": "FRAG_ICE+RESERVE_A_LOW_1540_1540", "ret_300s_bps": 168.86, "vol_to_price_drive": 49.17},
+    {"rank": 2, "event_id": "dc7de6d6", "time_et": "11:40", "price": 8.0, "price_zone": "LOW", "volume": 23326, "type": "FRAG_ICE+ICE+RELOAD+RESERVE_B_LOW_1540_1540", "ret_300s_bps": 162.5, "vol_to_price_drive": 69.66},
+    {"rank": 3, "event_id": "3ce8a7a6", "time_et": "15:55", "price": 7.98, "price_zone": "LOW", "volume": 31042, "type": "CANCEL_B_LOW_1955_2000", "ret_300s_bps": 75.09, "vol_to_price_drive": 24.19},
+    {"rank": 4, "event_id": "79141823", "time_et": "15:55", "price": 8.01, "price_zone": "LOW", "volume": 25195, "type": "CANCEL_A_LOW_1955_2000", "ret_300s_bps": 75.09, "vol_to_price_drive": 29.8}
+  ],
+  "rolling_layering_events_for_holmes": [],
+  "_注释_critical_events": "取自Layer2/3同一份T1排序结果的前10条，保证三层文件事件集合一致"
+}

@@ -1,0 +1,387 @@
+{
+  "_文件说明": "==================== Layer 0 · 情报头文件（总表） ====================",
+  "_本文件名": "SVCO_20261008_intelligence_brief.json",
+  "_定位": "机构级日报头文件，福尔摩斯第一读取对象，30秒得出全局判断；同时是5个文件的总目录入口",
+  "_价格分带定义": "LOW≤8.130 / MID 8.130-8.350 / HIGH≥8.350（日高8.57 日低7.91，源CSV的price_zone列按day_low/day_high等分三档计算）",
+  "file_manifest": {
+    "_注释": "【全目录总表】按Layer 0->4顺序阅读；本字段仅出现在Layer 0中",
+    "layer_0": {
+      "filename": "SVCO_20261008_intelligence_brief.json",
+      "role": "情报头文件（总表）",
+      "content": "30秒全局判断：方向信号/冰山榜单/滚动分层谎骗/对倒分析/流动性真空异常/关键价位/前3证据/全家族汇总",
+      "read_first": true
+    },
+    "layer_1": {
+      "filename": "SVCO_20261008_narrative.md",
+      "role": "叙事报告",
+      "content": "机构研报格式：执行摘要/时序操作地图/冰山地图/对倒分析/流动性真空异常地图"
+    },
+    "layer_2": {
+      "filename": "SVCO_20261008_clusters_tiered.csv",
+      "role": "三层分级事件表",
+      "content": "结构化事件簇表格，每行一个行为簇，含方向/量/回报/意图/置信度等字段，机器可读，用于按重要性快速筛选证据"
+    },
+    "layer_3": {
+      "filename": "SVCO_20261008_events_material.csv",
+      "role": "精选事件明细表",
+      "content": "Layer 2事件簇的加强版明细表，额外含成交比例/订单存活/时段等市场快照，供深挖单条证据的市场背景"
+    },
+    "layer_4": {
+      "filename": "SVCO_20261008_machine_input.json",
+      "role": "机器输入文件",
+      "content": "把前3层文件的判断依据浓缩成纯数值/枚举的键值对，免去福尔摩斯自己从文字或表格里提炼证据的步骤"
+    }
+  },
+  "header": {
+    "ticker": "SVCO",
+    "date": "2026-10-08",
+    "mbo_rows": 59180,
+    "trades_rows": 2205
+  },
+  "direction_signal": {
+    "verdict": "NEUTRAL",
+    "lean": "LONG_BIAS",
+    "confidence": 0.37,
+    "short_trigger": "BREAK_BELOW_8.13",
+    "long_trigger": "RECLAIM_ABOVE_8.35",
+    "target_down": [
+      8.13,
+      7.91
+    ],
+    "target_up": [
+      8.35,
+      8.57
+    ],
+    "_注释": "由规则辅助信号映射产出；trigger价位=价格分带三分位边界，非人工挑选"
+  },
+  "iceberg_leaderboard": {
+    "_注释": "单个冰山候选事件榜单；单位=单条candidate/单条冰山链，不是micro_cluster合并簇；包含ICE/RESERVE/RELOAD/FRAG_ICE",
+    "_source": "all_candidate_events.csv",
+    "_unit": "single_candidate_event",
+    "count": 52,
+    "total_volume": 84329,
+    "by_zone": {
+      "HIGH": {
+        "count": 0,
+        "volume": 0,
+        "pct": 0.0
+      },
+      "MID": {
+        "count": 10,
+        "volume": 5877,
+        "pct": 7.0
+      },
+      "LOW": {
+        "count": 42,
+        "volume": 78452,
+        "pct": 93.0
+      }
+    },
+    "top10": [
+      {
+        "rank": 1,
+        "candidate_id": "2214df2f8f85",
+        "micro_cluster_id": "0d9e5a85be6a",
+        "family": "FRAG_ICE",
+        "event_type": "fragmented_absorption_candidate",
+        "side": "A",
+        "price": 8.0,
+        "volume": 30931,
+        "zone": "LOW",
+        "time_et": "11:40"
+      },
+      {
+        "rank": 2,
+        "candidate_id": "2babe6591a77",
+        "micro_cluster_id": "dc7de6d6e471",
+        "family": "FRAG_ICE",
+        "event_type": "fragmented_absorption_candidate",
+        "side": "B",
+        "price": 8.0,
+        "volume": 10183,
+        "zone": "LOW",
+        "time_et": "11:40"
+      },
+      {
+        "rank": 3,
+        "candidate_id": "aaf02fe6c902",
+        "micro_cluster_id": "2f2fb8f5edfb",
+        "family": "FRAG_ICE",
+        "event_type": "fragmented_absorption_candidate",
+        "side": "A",
+        "price": 8.0,
+        "volume": 5299,
+        "zone": "LOW",
+        "time_et": "15:58"
+      },
+      {
+        "rank": 4,
+        "candidate_id": "f1eff575b9fe",
+        "micro_cluster_id": "dc7de6d6e471",
+        "family": "FRAG_ICE",
+        "event_type": "fragmented_absorption_candidate",
+        "side": "B",
+        "price": 8.02,
+        "volume": 4952,
+        "zone": "LOW",
+        "time_et": "11:40"
+      },
+      {
+        "rank": 5,
+        "candidate_id": "37a9c64c064f",
+        "micro_cluster_id": "ac95da49b83d",
+        "family": "FRAG_ICE",
+        "event_type": "fragmented_absorption_candidate",
+        "side": "B",
+        "price": 8.0,
+        "volume": 4303,
+        "zone": "LOW",
+        "time_et": "15:57"
+      },
+      {
+        "rank": 6,
+        "candidate_id": "257a2cfb4b68",
+        "micro_cluster_id": "dc7de6d6e471",
+        "family": "ICE",
+        "event_type": "omf_iceberg_candidate",
+        "side": "B",
+        "price": 8.02,
+        "volume": 3200,
+        "zone": "LOW",
+        "time_et": "11:40"
+      },
+      {
+        "rank": 7,
+        "candidate_id": "6d254f750f26",
+        "micro_cluster_id": "0d9e5a85be6a",
+        "family": "FRAG_ICE",
+        "event_type": "fragmented_absorption_candidate",
+        "side": "A",
+        "price": 8.02,
+        "volume": 1708,
+        "zone": "LOW",
+        "time_et": "11:40"
+      },
+      {
+        "rank": 8,
+        "candidate_id": "ed97d2975249",
+        "micro_cluster_id": "435089abae60",
+        "family": "FRAG_ICE",
+        "event_type": "fragmented_absorption_candidate",
+        "side": "A",
+        "price": 8.0,
+        "volume": 1218,
+        "zone": "LOW",
+        "time_et": "15:55"
+      },
+      {
+        "rank": 9,
+        "candidate_id": "a8b234369686",
+        "micro_cluster_id": "55f827139798",
+        "family": "FRAG_ICE",
+        "event_type": "fragmented_absorption_candidate",
+        "side": "A",
+        "price": 7.96,
+        "volume": 1186,
+        "zone": "LOW",
+        "time_et": "15:48"
+      },
+      {
+        "rank": 10,
+        "candidate_id": "797c4d9a1012",
+        "micro_cluster_id": "177faddc599e",
+        "family": "FRAG_ICE",
+        "event_type": "fragmented_absorption_candidate",
+        "side": "B",
+        "price": 8.16,
+        "volume": 1048,
+        "zone": "MID",
+        "time_et": "11:48"
+      }
+    ]
+  },
+  "rolling_layering_map": {
+    "_注释": "Rolling Layering / rolling_layer_spoof：从all_candidate_events.csv直接提取，不受behavior_clusters.csv黄单过滤影响",
+    "_source": "all_candidate_events.csv",
+    "_definition": "rolling_layer_spoof：同侧贴盘大单撤销后，在相邻价位恰好±1 tick快速重挂，规模相近，chain_length≥3。",
+    "count": 0,
+    "total_volume": 0,
+    "by_side": {
+      "A": {
+        "count": 0,
+        "volume": 0
+      },
+      "B": {
+        "count": 0,
+        "volume": 0
+      },
+      "N": {
+        "count": 0,
+        "volume": 0
+      }
+    },
+    "by_zone": {
+      "HIGH": {
+        "count": 0,
+        "volume": 0
+      },
+      "MID": {
+        "count": 0,
+        "volume": 0
+      },
+      "LOW": {
+        "count": 0,
+        "volume": 0
+      },
+      "UNKNOWN": {
+        "count": 0,
+        "volume": 0
+      }
+    },
+    "top10": []
+  },
+  "churn_summary": {
+    "_注释": "MATCHED(对倒/对敲)分析，含vol_to_price_drive洗量判定",
+    "count": 2,
+    "total_volume": 4718,
+    "dominant_zone": "LOW",
+    "by_zone": {
+      "HIGH": {
+        "count": 0,
+        "volume": 0
+      },
+      "MID": {
+        "count": 0,
+        "volume": 0
+      },
+      "LOW": {
+        "count": 2,
+        "volume": 4718
+      }
+    },
+    "dominant_zone_drive": 275.08,
+    "clean_directional_ref_drive": 424.2,
+    "wash_ratio": 1.5
+  },
+  "liquidity_void_map": {
+    "_注释": "流动性真空(Liquidity Void)异常事件明细，避免只看family_summary的一行计数看不到具体是哪几笔",
+    "Liquidity Void": {
+      "_注释": "流动性真空异常：日高/日低 P99 被动墙被连续主动单吃掉，价格位移≥5tick，且后续满足价差扩张确认",
+      "count": 0,
+      "total_volume": 0,
+      "top5": []
+    }
+  },
+  "session_metrics": {
+    "open": 8.57,
+    "high": 8.57,
+    "low": 7.91,
+    "close": 8.05,
+    "close_vs_high_pct": -6.07,
+    "close_vs_low_pct": 1.77,
+    "day_range_pct": 8.34,
+    "today_return_pct": -4.17,
+    "volume": 450192,
+    "vwap": 8.1225,
+    "prev_close": 8.4
+  },
+  "key_levels": {
+    "resistance_1": {
+      "price": 8.57,
+      "evidence": "day_high"
+    },
+    "pivot": {
+      "price": 8.35,
+      "evidence": "MID/HIGH_band_boundary"
+    },
+    "breakdown_trigger": {
+      "price": 8.13,
+      "evidence": "MID/LOW_band_boundary"
+    },
+    "support_1": {
+      "price": 7.91,
+      "evidence": "day_low"
+    }
+  },
+  "top3_evidence": [
+    {
+      "rank": 1,
+      "type": "BILATERAL_LOW_ZONE_balanced_DOMINANT",
+      "description": "LOW区@$8.0 dominant=balanced ratio=0.68 ret_300s=149.81bps",
+      "implication": "balanced two-way battle — likely wash or contested zone",
+      "weight": "CRITICAL"
+    },
+    {
+      "rank": 2,
+      "type": "BILATERAL_LOW_ZONE_balanced_DOMINANT",
+      "description": "LOW区@$7.9925 dominant=balanced ratio=0.93 ret_300s=75.09bps",
+      "implication": "balanced two-way battle — likely wash or contested zone",
+      "weight": "CRITICAL"
+    },
+    {
+      "rank": 3,
+      "type": "BILATERAL_MID_ZONE_B_DOMINANT",
+      "description": "MID区@$8.16 dominant=B ratio=2.07 ret_300s=73.62bps",
+      "implication": "dominant Bid absorption (Bid/Ask=2.07) with minor Ask counter",
+      "weight": "CRITICAL"
+    }
+  ],
+  "family_summary": {
+    "ICE": {
+      "count": 11,
+      "volume": 5768,
+      "bias": "BID_6.94x+LOW_ZONE_91.3pct"
+    },
+    "RESERVE": {
+      "count": 11,
+      "volume": 4177,
+      "bias": "BID_1.78x+LOW_ZONE_81.3pct"
+    },
+    "RELOAD": {
+      "count": 4,
+      "volume": 1658,
+      "bias": "LOW_ZONE_100.0pct"
+    },
+    "FRAG_ICE": {
+      "count": 26,
+      "volume": 72726,
+      "bias": "ASK_1.83x+LOW_ZONE_93.7pct"
+    },
+    "ABSORB": {
+      "count": 0,
+      "volume": 0,
+      "bias": "NO_EVENTS_TODAY"
+    },
+    "CANCEL": {
+      "count": 139,
+      "volume": 73579,
+      "bias": "LOW_ZONE_92.9pct"
+    },
+    "LAYERING": {
+      "count": 0,
+      "volume": 0,
+      "bias": "NO_EVENTS_TODAY",
+      "_source": "all_candidate_events.csv:rolling_layering_candidate"
+    },
+    "TRF": {
+      "count": 8,
+      "volume": 38628,
+      "bias": "MID_ZONE_70.9pct"
+    },
+    "Liquidity Void": {
+      "count": 0,
+      "volume": 0,
+      "bias": "NO_EVENTS_TODAY"
+    },
+    "MATCHED": {
+      "count": 2,
+      "volume": 4718,
+      "bias": "LOW_ZONE_100.0pct"
+    },
+    "CHURN": {
+      "count": 0,
+      "volume": 0,
+      "bias": "NO_EVENTS_TODAY"
+    }
+  }
+}
