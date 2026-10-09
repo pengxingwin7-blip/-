@@ -1,0 +1,49 @@
+# ==================== Layer 3 · 精选事件明细表 ====================
+# 本文件名：ALLT_20261008_events_material.csv
+# 本文件在5层体系中的位置：第4个文件（总表见 ALLT_20261008_intelligence_brief.json 的 file_manifest 字段）
+# 其余4个文件：Layer0=ALLT_20261008_intelligence_brief.json(情报头文件（总表）) / Layer1=ALLT_20261008_narrative.md(叙事报告) / Layer2=ALLT_20261008_clusters_tiered.csv(三层分级事件表) / Layer4=ALLT_20261008_machine_input.json(机器输入文件)
+# 定位：替代旧 all_candidate_events.csv，只保留T1+T2精选的完整明细。
+# 本文件目录：T1层明细（冰山和对倒在前，同Layer2排序+市场快照字段） -> T2层明细（同排序） -> FAMILY_TOTAL_SUMMARY（按全部家族强制列出全层级汇总，不列明细）
+# 本文件内容概述：Layer 2事件簇的加强版明细表，额外含成交比例/订单存活/时段等市场快照，供深挖单条证据的市场背景。
+# 排序原则：冰山->对倒->谎骗->TRF->流动性真空->收盘吸收->其余（同Layer 2，事件集合与Layer2完全一致）
+# 价格分带：LOW≤8.03 / MID 8.03-8.09 / HIGH≥8.09（日高8.14 日低7.98，源CSV的price_zone列按day_low/day_high等分三档计算）
+# T3不列明细；底部附T1+T2+T3全层级家族汇总。
+#
+# ========== T1层明细（冰山和对倒在前） ==========
+cluster_id(事件簇编号),materiality_tier(重要性T1最高/T2中等/T3流水),event_type(行为类型),cluster_family(家族组合),candidate_side(方向B买A卖N中性),price_level(中位价$),price_zone(价带HIGH/MID/LOW),total_volume(总量股),event_count(簇内事件数),duration_s(持续秒),ret_300s(300秒移动tick),ret_60s(60秒移动tick),ret_30s(30秒移动tick),spoof_color(BLUE卖谎骗/RED买谎骗/YELLOW未确认/-),vol_to_price_drive(每万股推价tick),start_time(起始时间ET),venue_count(交易所数),confidence(置信度%),fill_ratio(被成交比例0-1低=藏单或谎骗),order_duration_s(订单存活秒(同duration_s)),session_phase(MORNING/AFTERNOON/CLOSE)
+16b0cbef,T1,TRF_N_MID_1650_1650,TRF,N,8.04,MID,15600,1,0.0,5.0,3.0,3.0,-,3.21,12:50,,46.2,,0.0,AFTERNOON
+#
+# ========== T2层精选明细 ==========
+908380e0,T2,ICE_N_B_MID_1924_1924,ICE_N,B,8.06,MID,3595,1,0.1,-3.5,0.0,0.0,-,-9.74,15:24,1,80.0,,0.1,AFTERNOON
+6d8165fb,T2,CANCEL_A_MID_1919_1919,CANCEL,A,8.04,MID,12059,2,3.0,1.0,-0.5,-0.5,BLUE,0.83,15:19,1,45.0,,3.0,AFTERNOON
+558e2c2a,T2,CANCEL_B_MID_1958_2000,CANCEL,B,8.08,MID,4588,6,97.1,-2.0,0.0,0.5,RED,-4.36,15:58,1,45.0,,97.1,CLOSE
+09297845,T2,CANCEL_B_LOW_1919_1921,CANCEL,B,8.03,LOW,3315,11,101.4,1.0,-0.5,-0.5,RED,3.02,15:19,2,45.0,,101.4,AFTERNOON
+437ae3b9,T2,TRF_N_MID_1732_1733,TRF,N,8.05,MID,9700,1,53.0,2.0,3.0,1.5,-,2.06,13:32,,34.4,,53.0,AFTERNOON
+616af127,T2,TRF_N_MID_1330_1331,TRF,N,8.05,MID,5549,1,59.9,4.0,-2.0,-2.0,-,7.21,09:30,,26.1,,59.9,MORNING
+60e5f58e,T2,TRF_N_MID_1424_1424,TRF,N,8.07,MID,5200,1,27.5,-2.5,-2.5,-2.5,-,-4.81,10:24,,25.4,,27.5,MORNING
+15f7a0df,T2,TRF_N_HIGH_1820_1820,TRF,N,8.10,HIGH,5000,1,3.2,3.0,1.5,1.5,-,6.0,14:20,,25.0,,3.2,AFTERNOON
+f3874e7c,T2,TRF_N_MID_1348_1349,TRF,N,8.04,MID,3912,1,23.6,4.5,2.5,2.5,-,11.5,09:48,,22.82,,23.6,MORNING
+44c29c90,T2,TRF_N_MID_1910_1912,TRF,N,8.06,MID,3400,1,123.9,-3.5,0.0,0.0,-,-10.29,15:10,,21.8,,123.9,AFTERNOON
+3a9fd41a,T2,TRF_N_HIGH_1829_1829,TRF,N,8.11,HIGH,2800,1,0.0,-1.5,-2.5,-2.5,-,-5.36,14:29,,20.6,,0.0,AFTERNOON
+c5896455,T2,TRF_N_MID_1747_1747,TRF,N,8.06,MID,2604,1,0.0,-2.0,-2.0,-2.0,-,-7.68,13:47,,20.21,,0.0,AFTERNOON
+0150a5fa,T2,TRF_N_MID_1924_1924,TRF,N,8.06,MID,2400,1,0.1,-3.5,0.0,0.0,-,-14.58,15:24,,19.8,,0.1,AFTERNOON
+96a2211b,T2,TRF_N_MID_1935_1936,TRF,N,8.06,MID,2316,1,17.8,12.0,9.0,9.0,-,51.81,15:35,,19.63,,17.8,CLOSE
+5a84de06,T2,CHURN_N_LOW_1918_1919,CHURN,N,8.03,LOW,7819,1,53.7,2.0,-0.5,0.5,-,2.56,15:18,,60.0,,53.7,AFTERNOON
+2f750148,T2,CHURN_N_MID_1654_1655,CHURN,N,8.07,MID,3643,1,31.1,-1.0,1.0,1.0,-,-2.74,12:54,,60.0,,31.1,AFTERNOON
+36730718,T2,CHURN_N_HIGH_1958_1959,CHURN,N,8.10,HIGH,2784,1,55.5,-2.0,0.0,0.5,-,-7.18,15:58,,39.0,,55.5,CLOSE
+4ba9a4f1,T2,CHURN_N_MID_1650_1650,CHURN,N,8.04,MID,2623,1,41.3,3.0,1.0,1.0,-,11.44,12:50,,55.0,,41.3,AFTERNOON
+#
+# ========== [FAMILY_TOTAL_SUMMARY] 按全部家族强制汇总（T1+T2+T3） ==========
+# ICE_N: count=3 volume=4793
+# ICE_S1: count=3 volume=1004
+# ICE_S2: count=1 volume=101
+# ICE_S3: count=1 volume=124
+# ICE_X: count=3 volume=1078
+# ICE_P: count=0 volume=0
+# ABSORB: count=0 volume=0
+# CANCEL: count=13 volume=29465
+# LAYERING: count=0 volume=0
+# TRF: count=20 volume=74285
+# Liquidity Void: count=0 volume=0
+# MATCHED: count=3 volume=2082
+# CHURN: count=9 volume=21663
