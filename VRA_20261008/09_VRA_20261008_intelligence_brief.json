@@ -1,0 +1,300 @@
+{
+  "_文件说明": "==================== Layer 0 · 情报头文件（总表） ====================",
+  "_本文件名": "VRA_20261008_intelligence_brief.json",
+  "_定位": "机构级日报头文件，福尔摩斯第一读取对象，30秒得出全局判断；同时是5个文件的总目录入口",
+  "_价格分带定义": "LOW≤5.10 / MID 5.10-5.20 / HIGH≥5.20（日高5.30 日低5.00，源CSV的price_zone列按day_low/day_high等分三档计算）",
+  "file_manifest": {
+    "_注释": "【全目录总表】按Layer 0->4顺序阅读；本字段仅出现在Layer 0中",
+    "layer_0": {"filename": "VRA_20261008_intelligence_brief.json", "role": "情报头文件（总表）", "content": "30秒全局判断：方向信号/冰山榜单/双向吸收Top10与力度/挂单墙候选/滚动分层谎骗/对倒分析/流动性真空异常/关键价位/前3证据/全家族汇总", "read_first": true},
+    "layer_1": {"filename": "VRA_20261008_narrative.md", "role": "叙事报告", "content": "机构研报格式：执行摘要/时序操作地图/冰山地图/对倒分析/流动性真空异常地图"},
+    "layer_2": {"filename": "VRA_20261008_clusters_tiered.csv", "role": "三层分级事件表", "content": "结构化事件簇表格，每行一个行为簇，含方向/量/回报/意图/置信度等字段，机器可读，用于按重要性快速筛选证据"},
+    "layer_3": {"filename": "VRA_20261008_events_material.csv", "role": "精选事件明细表", "content": "Layer 2事件簇的加强版明细表，额外含成交比例/订单存活/时段等市场快照，供深挖单条证据的市场背景"},
+    "layer_4": {"filename": "VRA_20261008_machine_input.json", "role": "机器输入文件", "content": "把前3层文件的判断依据浓缩成纯数值/枚举的键值对，免去福尔摩斯自己从文字或表格里提炼证据的步骤"}
+  },
+  "header": {"ticker": "VRA", "date": "2026-10-08", "mbo_rows": 53344, "trades_rows": 2765},
+  "direction_signal": {
+    "verdict": "NEUTRAL",
+    "lean": "SHORT_BIAS",
+    "confidence": 0.48,
+    "short_trigger": "BREAK_BELOW_5.1",
+    "long_trigger": "RECLAIM_ABOVE_5.2",
+    "target_down": [5.1, 5.0],
+    "target_up": [5.2, 5.3],
+    "_注释": "由规则辅助信号映射产出；trigger价位=价格分带三分位边界，非人工挑选"
+  },
+  "iceberg_leaderboard": {
+    "_注释": "单个冰山候选事件榜单；单位=单条candidate/单条冰山链，不是micro_cluster合并簇；包含V6的ICE_N/ICE_S1/ICE_S2/ICE_S3/ICE_X，跟价冰山ICE_P不计入",
+    "_source": "all_candidate_events.csv",
+    "_unit": "single_candidate_event",
+    "count": 25,
+    "total_volume": 7734,
+    "by_zone": {
+      "HIGH": {
+        "count": 9,
+        "volume": 4464,
+        "pct": 57.7,
+        "B": {"count": 4, "volume": 3546},
+        "A": {"count": 5, "volume": 918}
+      },
+      "MID": {
+        "count": 4,
+        "volume": 722,
+        "pct": 9.3,
+        "B": {"count": 2, "volume": 478},
+        "A": {"count": 2, "volume": 244}
+      },
+      "LOW": {
+        "count": 12,
+        "volume": 2548,
+        "pct": 32.9,
+        "B": {"count": 8, "volume": 1327},
+        "A": {"count": 4, "volume": 1221}
+      }
+    },
+    "by_side": {
+      "B": {"count": 14, "volume": 5351, "pct": 69.2},
+      "A": {"count": 11, "volume": 2383, "pct": 30.8}
+    },
+    "top10": [
+      {"rank": 1, "candidate_id": "26c8f67100dd", "micro_cluster_id": "ff7fe5be9db4", "family": "ICE_S1", "event_type": "ice_s1_iceberg", "side": "B", "price": 5.2, "volume": 1710, "zone": "HIGH", "time_et": "10:55"},
+      {"rank": 2, "candidate_id": "8a3aed80ed1c", "micro_cluster_id": "ff7fe5be9db4", "family": "ICE_X", "event_type": "ice_x_iceberg", "side": "B", "price": 5.2, "volume": 1414, "zone": "HIGH", "time_et": "10:55"},
+      {"rank": 3, "candidate_id": "7050f101c96b", "micro_cluster_id": "57a8695dd80f", "family": "ICE_S1", "event_type": "ice_s1_iceberg", "side": "A", "price": 5.06, "volume": 541, "zone": "LOW", "time_et": "14:03"},
+      {"rank": 4, "candidate_id": "4572a91a1839", "micro_cluster_id": "7d9b0e9b3b8a", "family": "ICE_S1", "event_type": "ice_s1_iceberg", "side": "A", "price": 5.08, "volume": 473, "zone": "LOW", "time_et": "15:59"},
+      {"rank": 5, "candidate_id": "682bd8cd1e7e", "micro_cluster_id": "796c8e8abb38", "family": "ICE_X", "event_type": "ice_x_iceberg", "side": "B", "price": 5.03, "volume": 403, "zone": "LOW", "time_et": "11:20"},
+      {"rank": 6, "candidate_id": "d2dce7a88be6", "micro_cluster_id": "048cd95c8669", "family": "ICE_N", "event_type": "ice_n_iceberg", "side": "A", "price": 5.24, "volume": 400, "zone": "HIGH", "time_et": "09:56"},
+      {"rank": 7, "candidate_id": "8a7bb064981c", "micro_cluster_id": "be1c4431bd59", "family": "ICE_X", "event_type": "ice_x_iceberg", "side": "B", "price": 5.25, "volume": 340, "zone": "HIGH", "time_et": "10:01"},
+      {"rank": 8, "candidate_id": "9e61ae6634b6", "micro_cluster_id": "ca131c07b6a6", "family": "ICE_N", "event_type": "ice_n_iceberg", "side": "A", "price": 5.3, "volume": 300, "zone": "HIGH", "time_et": "10:35"},
+      {"rank": 9, "candidate_id": "e291e9d09b9f", "micro_cluster_id": "7596abea32c3", "family": "ICE_X", "event_type": "ice_x_iceberg", "side": "B", "price": 5.14, "volume": 273, "zone": "MID", "time_et": "10:55"},
+      {"rank": 10, "candidate_id": "3623bd9c3f55", "micro_cluster_id": "f28a001d09be", "family": "ICE_S3", "event_type": "ice_s3_iceberg", "side": "B", "price": 5.04, "volume": 256, "zone": "LOW", "time_et": "15:57"}
+    ],
+    "_注释_by_zone": "每个区间里 B=买方冰山、A=卖方冰山 的笔数和股数；by_side=全天买卖合计"
+  },
+  "rolling_layering_map": {
+    "_注释": "Rolling Layering / rolling_layer_spoof：从all_candidate_events.csv直接提取，不受behavior_clusters.csv黄单过滤影响",
+    "_source": "all_candidate_events.csv",
+    "_definition": "rolling_layer_spoof：同侧贴盘大单撤销后，在相邻价位恰好±1 tick快速重挂，规模相近，chain_length≥3。",
+    "count": 17,
+    "total_volume": 13780,
+    "by_side": {
+      "A": {"count": 8, "volume": 6815},
+      "B": {"count": 9, "volume": 6965},
+      "N": {"count": 0, "volume": 0}
+    },
+    "by_zone": {
+      "HIGH": {"count": 3, "volume": 2100},
+      "MID": {"count": 10, "volume": 8280},
+      "LOW": {"count": 4, "volume": 3400},
+      "UNKNOWN": {"count": 0, "volume": 0}
+    },
+    "top10": [
+      {"candidate_id": "78846fc81672", "micro_cluster_id": "0a5597444bcb", "subtype": "rolling_ask_layering_down", "subtype_zh": "卖侧滚动压价：撤单后向下逐tick重挂", "side": "A", "price": 5.14, "zone": "MID", "volume": 1815, "event_count": 9, "fill_ratio": 0.0, "duration_s": 0.1, "ret_300s": -4.0, "spoof_color": "BLUE", "confidence": 75.0, "time_et": "10:55", "raw_event_ids": "3662473260297505,446850680,446851180,446851280,446852644,3662473260299170,446854644,446855188,446855984"},
+      {"candidate_id": "7db8759ff4d6", "micro_cluster_id": "52d8326109b3", "subtype": "rolling_ask_layering_down", "subtype_zh": "卖侧滚动压价：撤单后向下逐tick重挂", "side": "A", "price": 5.07, "zone": "LOW", "volume": 1000, "event_count": 5, "fill_ratio": 0.0, "duration_s": 2558.4, "ret_300s": 0.0, "spoof_color": "YELLOW", "confidence": 60.0, "time_et": "14:19", "raw_event_ids": "1302502956,1390826444,1411774392,1415579456,1419298072"},
+      {"candidate_id": "7721b3dc5636", "micro_cluster_id": "a1ecbddea692", "subtype": "rolling_bid_layering_up", "subtype_zh": "买侧滚动托价：撤单后向上逐tick重挂", "side": "B", "price": 5.02, "zone": "LOW", "volume": 1000, "event_count": 5, "fill_ratio": 0.0, "duration_s": 296.5, "ret_300s": 6.0, "spoof_color": "YELLOW", "confidence": 60.0, "time_et": "15:55", "raw_event_ids": "1596354764,1609865096,1618776592,1622587584,1628058684"},
+      {"candidate_id": "2b0a698f4e8f", "micro_cluster_id": "db721520a180", "subtype": "rolling_bid_layering_up", "subtype_zh": "买侧滚动托价：撤单后向上逐tick重挂", "side": "B", "price": 5.19, "zone": "MID", "volume": 900, "event_count": 3, "fill_ratio": 0.0, "duration_s": 173.2, "ret_300s": 1.0, "spoof_color": "YELLOW", "confidence": 44.0, "time_et": "09:41", "raw_event_ids": "149495972,149522876,159222724"},
+      {"candidate_id": "16f3e6280a5a", "micro_cluster_id": "70c245fc060b", "subtype": "rolling_bid_layering_up", "subtype_zh": "买侧滚动托价：撤单后向上逐tick重挂", "side": "B", "price": 5.28, "zone": "HIGH", "volume": 900, "event_count": 3, "fill_ratio": 0.0, "duration_s": 92.0, "ret_300s": -2.0, "spoof_color": "YELLOW", "confidence": 44.0, "time_et": "10:35", "raw_event_ids": "378421472,379025532,383693184"},
+      {"candidate_id": "8f7584ca5aa9", "micro_cluster_id": "188da403f426", "subtype": "rolling_bid_layering_up", "subtype_zh": "买侧滚动托价：撤单后向上逐tick重挂", "side": "B", "price": 5.13, "zone": "MID", "volume": 845, "event_count": 4, "fill_ratio": 0.0, "duration_s": 1.1, "ret_300s": 2.0, "spoof_color": "RED", "confidence": 52.0, "time_et": "10:55", "raw_event_ids": "446853776,446858408,446858596,446863108"},
+      {"candidate_id": "356c56bdbe14", "micro_cluster_id": "188da403f426", "subtype": "rolling_bid_layering_up", "subtype_zh": "买侧滚动托价：撤单后向上逐tick重挂", "side": "B", "price": 5.13, "zone": "MID", "volume": 845, "event_count": 4, "fill_ratio": 0.0, "duration_s": 1.1, "ret_300s": 2.0, "spoof_color": "RED", "confidence": 52.0, "time_et": "10:55", "raw_event_ids": "446853704,446858404,446858592,446863104"},
+      {"candidate_id": "9b2d2b57f936", "micro_cluster_id": "0a5597444bcb", "subtype": "rolling_ask_layering_down", "subtype_zh": "卖侧滚动压价：撤单后向下逐tick重挂", "side": "A", "price": 5.15, "zone": "MID", "volume": 800, "event_count": 4, "fill_ratio": 0.0, "duration_s": 0.1, "ret_300s": -2.0, "spoof_color": "BLUE", "confidence": 52.0, "time_et": "10:55", "raw_event_ids": "446850688,446852612,446854096,3662473260300934"},
+      {"candidate_id": "45d87030fe39", "micro_cluster_id": "88e5baac0848", "subtype": "rolling_ask_layering_down", "subtype_zh": "卖侧滚动压价：撤单后向下逐tick重挂", "side": "A", "price": 5.1, "zone": "LOW", "volume": 800, "event_count": 4, "fill_ratio": 0.0, "duration_s": 1474.8, "ret_300s": 0.5, "spoof_color": "YELLOW", "confidence": 52.0, "time_et": "12:25", "raw_event_ids": "759076440,794523108,832475784,835516172"},
+      {"candidate_id": "51132a5f7880", "micro_cluster_id": "5e891fc75398", "subtype": "rolling_bid_layering_up", "subtype_zh": "买侧滚动托价：撤单后向上逐tick重挂", "side": "B", "price": 5.12, "zone": "MID", "volume": 645, "event_count": 3, "fill_ratio": 0.0, "duration_s": 0.1, "ret_300s": 3.0, "spoof_color": "RED", "confidence": 44.0, "time_et": "10:55", "raw_event_ids": "446856956,446858556,446862816"}
+    ]
+  },
+  "bilateral_absorption_map": {
+    "_注释": "仅保留dominant!=balanced且按既有显著性排序的前10对；ret单位=tick，ret_300s与ret_EOD各50%供AI参考",
+    "_口径": "双向吸收按0721版计算（0721的旧冰山ICE/RESERVE/RELOAD/FRAG_ICE + ABSORB簇配对），不用V6冰山；bid_cluster/ask_cluster是0721那套簇的名字",
+    "ret_unit": "ticks",
+    "reaction_weights": {"ret_300s": 0.5, "ret_EOD": 0.5},
+    "top10": [
+      {
+        "bid_cluster": "FRAG_ICE_B_HIGH_1436_1438",
+        "ask_cluster": "FRAG_ICE+ICE_A_HIGH_1435_1436",
+        "time_range": "2026-10-08 14:36:33.447104034+00:00 ~ 2026-10-08 14:36:33.448305780+00:00",
+        "time_range_et": "10:36:33 ~ 10:36:33",
+        "bid_volume": 1250,
+        "ask_volume": 38608,
+        "price_mid": 5.29,
+        "price_zone": "HIGH",
+        "dominant_side": "A",
+        "volume_ratio": 0.03,
+        "ret_300s_after_pair_end": -3.9,
+        "ret_eod_after_pair_end": -22.0,
+        "weighted_ret_ticks": -12.95,
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Ask absorption (Ask/Bid=30.89) with minor Bid counter — HIGH zone single-side distribution, strongest distribution suspicion",
+        "interpretation_summary": "HIGH区A主导；Bid=1,250股，Ask=38,608股"
+      },
+      {
+        "bid_cluster": "FRAG_ICE_B_HIGH_1353_1353",
+        "ask_cluster": "FRAG_ICE+RESERVE_A_HIGH_1343_1357",
+        "time_range": "2026-10-08 13:53:53.672100334+00:00 ~ 2026-10-08 13:53:54.277764844+00:00",
+        "time_range_et": "09:53:53 ~ 09:53:54",
+        "bid_volume": 780,
+        "ask_volume": 1540,
+        "price_mid": 5.21,
+        "price_zone": "HIGH",
+        "dominant_side": "A",
+        "volume_ratio": 0.51,
+        "ret_300s_after_pair_end": 5.0,
+        "ret_eod_after_pair_end": -11.0,
+        "weighted_ret_ticks": -3.0,
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Ask absorption (Ask/Bid=1.97) with minor Bid counter — HIGH zone single-side distribution, strongest distribution suspicion",
+        "interpretation_summary": "HIGH区A主导；Bid=780股，Ask=1,540股"
+      },
+      {
+        "bid_cluster": "FRAG_ICE+RELOAD+RESERVE_B_MID_1454_1457",
+        "ask_cluster": "FRAG_ICE+RELOAD+RESERVE_A_MID_1455_1457",
+        "time_range": "2026-10-08 14:55:44.691136+00:00 ~ 2026-10-08 14:57:23.799510620+00:00",
+        "time_range_et": "10:55:44 ~ 10:57:23",
+        "bid_volume": 25884,
+        "ask_volume": 5638,
+        "price_mid": 5.14,
+        "price_zone": "MID",
+        "dominant_side": "B",
+        "volume_ratio": 4.59,
+        "ret_300s_after_pair_end": -6.0,
+        "ret_eod_after_pair_end": -6.0,
+        "weighted_ret_ticks": -6.0,
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Bid absorption (Bid/Ask=4.59) with minor Ask counter",
+        "interpretation_summary": "MID区B主导；Bid=25,884股，Ask=5,638股"
+      },
+      {
+        "bid_cluster": "FRAG_ICE+RELOAD+RESERVE_B_MID_1454_1457",
+        "ask_cluster": "FRAG_ICE+ICE+RELOAD_A_HIGH_1454_1455",
+        "time_range": "2026-10-08 14:54:23.122312112+00:00 ~ 2026-10-08 14:55:44.634249472+00:00",
+        "time_range_et": "10:54:23 ~ 10:55:44",
+        "bid_volume": 25884,
+        "ask_volume": 3902,
+        "price_mid": 5.18,
+        "price_zone": "MID",
+        "dominant_side": "B",
+        "volume_ratio": 6.63,
+        "ret_300s_after_pair_end": -5.0,
+        "ret_eod_after_pair_end": -11.0,
+        "weighted_ret_ticks": -8.0,
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Bid absorption (Bid/Ask=6.63) with minor Ask counter",
+        "interpretation_summary": "MID区B主导；Bid=25,884股，Ask=3,902股"
+      },
+      {
+        "bid_cluster": "FRAG_ICE_B_HIGH_1401_1403",
+        "ask_cluster": "FRAG_ICE_A_HIGH_1401_1403",
+        "time_range": "2026-10-08 14:01:42.375612980+00:00 ~ 2026-10-08 14:03:09.967776439+00:00",
+        "time_range_et": "10:01:42 ~ 10:03:09",
+        "bid_volume": 1652,
+        "ask_volume": 829,
+        "price_mid": 5.24,
+        "price_zone": "HIGH",
+        "dominant_side": "B",
+        "volume_ratio": 1.99,
+        "ret_300s_after_pair_end": 1.0,
+        "ret_eod_after_pair_end": -15.0,
+        "weighted_ret_ticks": -7.0,
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Bid absorption (Bid/Ask=1.99) with minor Ask counter — Bid support/propping at HIGH zone",
+        "interpretation_summary": "HIGH区B主导；Bid=1,652股，Ask=829股"
+      },
+      {
+        "bid_cluster": "FRAG_ICE+RELOAD_B_HIGH_1358_1402",
+        "ask_cluster": "FRAG_ICE_A_HIGH_1401_1403",
+        "time_range": "2026-10-08 14:01:42.375612980+00:00 ~ 2026-10-08 14:02:16.495179264+00:00",
+        "time_range_et": "10:01:42 ~ 10:02:16",
+        "bid_volume": 1638,
+        "ask_volume": 829,
+        "price_mid": 5.24,
+        "price_zone": "HIGH",
+        "dominant_side": "B",
+        "volume_ratio": 1.98,
+        "ret_300s_after_pair_end": 0.0,
+        "ret_eod_after_pair_end": -16.0,
+        "weighted_ret_ticks": -8.0,
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Bid absorption (Bid/Ask=1.98) with minor Ask counter — Bid support/propping at HIGH zone",
+        "interpretation_summary": "HIGH区B主导；Bid=1,638股，Ask=829股"
+      }
+    ],
+    "stats": {
+      "population": 6,
+      "p95": {"bid_volume": 25884.0, "ask_volume": 30365.5, "pair_total_volume": 37774.0},
+      "top10_strength": {"pair_count": 6, "bid_volume": 57088, "ask_volume": 51346, "net_bid_minus_ask": 5742, "bid_ask_volume_ratio": 1.11, "bid_dominant_pairs": 4, "ask_dominant_pairs": 2}
+    }
+  },
+  "wall_candidates_map": {
+    "_注释": "挂单墙候选：size≥P99、A→C存活严格>15s、价格在日高低±5tick；仅候选，需结合价格反应确认",
+    "definition": "A→C, size≥P99, lifetime>15s, price within day high/low ±5 ticks",
+    "count": 67,
+    "p99_size_threshold": 457.23,
+    "price_bounds": {"lower": 4.95, "upper": 5.35, "day_low": 5.0, "day_high": 5.3, "tick_size": 0.01},
+    "by_side": {
+      "B": {"count": 18, "size": 30680},
+      "A": {"count": 49, "size": 100100}
+    },
+    "net_bid_minus_ask": -69420,
+    "bid_ask_size_ratio": 0.31,
+    "wall_bias": "ASK",
+    "top10": [
+      {"rank": 1, "candidate_id": "95f6fad1659a", "order_key": "85137816", "time": "09:30:01", "price": 5.3, "side": "A", "size": 36800, "lifetime_s": 3898.903, "level": "OUTSIDE_L5"},
+      {"rank": 2, "candidate_id": "01b7a47f3d6c", "order_key": "3662473241525431", "time": "09:30:04", "price": 5.25, "side": "A", "size": 5000, "lifetime_s": 1650.462, "level": "OUTSIDE_L5"},
+      {"rank": 3, "candidate_id": "3b3fb7dbd2c3", "order_key": "1616946708", "time": "15:58:28", "price": 4.99, "side": "B", "size": 3100, "lifetime_s": 91.798, "level": "B5"},
+      {"rank": 4, "candidate_id": "bcfad228c065", "order_key": "1616946712", "time": "15:58:28", "price": 5.09, "side": "A", "size": 3100, "lifetime_s": 87.438, "level": "A5"},
+      {"rank": 5, "candidate_id": "6505b91d81c4", "order_key": "1620416596", "time": "15:58:58", "price": 4.98, "side": "B", "size": 3100, "lifetime_s": 61.826, "level": "OUTSIDE_L5"},
+      {"rank": 6, "candidate_id": "c94d64033f68", "order_key": "1620416608", "time": "15:58:58", "price": 5.11, "side": "A", "size": 3100, "lifetime_s": 61.712, "level": "OUTSIDE_L5"},
+      {"rank": 7, "candidate_id": "6dd6a26ed88e", "order_key": "1623147916", "time": "15:59:15", "price": 4.96, "side": "B", "size": 3100, "lifetime_s": 45.522, "level": "OUTSIDE_L5"},
+      {"rank": 8, "candidate_id": "1b210b7100d9", "order_key": "1623147920", "time": "15:59:15", "price": 5.13, "side": "A", "size": 3100, "lifetime_s": 45.382, "level": "OUTSIDE_L5"},
+      {"rank": 9, "candidate_id": "966c57f0f40a", "order_key": "97941264", "time": "09:32:03", "price": 5.04, "side": "B", "size": 2790, "lifetime_s": 3777.467, "level": "OUTSIDE_L5"},
+      {"rank": 10, "candidate_id": "4092aab7aa60", "order_key": "1624472836", "time": "15:59:25", "price": 5.14, "side": "A", "size": 2524, "lifetime_s": 35.424, "level": "OUTSIDE_L5"}
+    ]
+  },
+  "churn_summary": {
+    "_注释": "MATCHED(对倒/对敲)分析，含vol_to_price_drive洗量判定",
+    "count": 3,
+    "total_volume": 15544,
+    "dominant_zone": "HIGH",
+    "by_zone": {
+      "HIGH": {"count": 2, "volume": 13640},
+      "MID": {"count": 0, "volume": 0},
+      "LOW": {"count": 1, "volume": 1904}
+    },
+    "dominant_zone_drive": -6.11,
+    "clean_directional_ref_drive": 18.75,
+    "wash_ratio": 3.1
+  },
+  "liquidity_void_map": {
+    "_注释": "流动性真空(Liquidity Void)异常事件明细，避免只看family_summary的一行计数看不到具体是哪几笔",
+    "Liquidity Void": {
+      "_注释": "流动性真空异常：日高/日低 P99 被动墙被连续主动单吃掉，价格位移≥5tick，且后续满足价差扩张确认",
+      "count": 0,
+      "total_volume": 0,
+      "top5": []
+    }
+  },
+  "session_metrics": {"open": 5.09, "high": 5.3, "low": 5.0, "close": 5.08, "close_vs_high_pct": -4.15, "close_vs_low_pct": 1.7, "day_range_pct": 6.11, "today_return_pct": 2.01, "volume": 929420, "vwap": 5.13, "prev_close": 4.98},
+  "key_levels": {
+    "resistance_1": {"price": 5.3, "evidence": "day_high"},
+    "pivot": {"price": 5.2, "evidence": "MID/HIGH_band_boundary"},
+    "breakdown_trigger": {"price": 5.1, "evidence": "MID/LOW_band_boundary"},
+    "support_1": {"price": 5.0, "evidence": "day_low"},
+    "iceberg_wall_high": {"range": "5.20-5.30", "evidence": "iceberg_HIGH_57.7pct"}
+  },
+  "top3_evidence": [
+    {"rank": 1, "type": "BILATERAL_HIGH_ZONE_A_DOMINANT", "description": "HIGH区@$5.29 dominant=A ratio=0.03 ret_300s=-3.9tick ret_EOD=-22.0tick (50/50=-12.95)", "implication": "dominant Ask absorption (Ask/Bid=30.89) with minor Bid counter — HIGH zone single-side distribution, strongest distribution suspicion", "weight": "CRITICAL"},
+    {"rank": 2, "type": "BILATERAL_MID_ZONE_B_DOMINANT", "description": "MID区@$5.14 dominant=B ratio=4.59 ret_300s=-6.0tick ret_EOD=-6.0tick (50/50=-6.0)", "implication": "dominant Bid absorption (Bid/Ask=4.59) with minor Ask counter", "weight": "CRITICAL"},
+    {"rank": 3, "type": "BILATERAL_MID_ZONE_B_DOMINANT", "description": "MID区@$5.18 dominant=B ratio=6.63 ret_300s=-5.0tick ret_EOD=-11.0tick (50/50=-8.0)", "implication": "dominant Bid absorption (Bid/Ask=6.63) with minor Ask counter", "weight": "CRITICAL"}
+  ],
+  "family_summary": {
+    "ICE_N": {"count": 3, "volume": 900, "bias": "ASK_3.5x+HIGH_ZONE_77.8pct"},
+    "ICE_S1": {"count": 8, "volume": 3228, "bias": "BID_1.73x+HIGH_ZONE_58.2pct"},
+    "ICE_S2": {"count": 2, "volume": 179, "bias": "MID_ZONE_72.1pct"},
+    "ICE_S3": {"count": 2, "volume": 376, "bias": "LOW_ZONE_100.0pct"},
+    "ICE_X": {"count": 10, "volume": 3051, "bias": "BID_8.48x+HIGH_ZONE_60.2pct"},
+    "ICE_P": {"count": 0, "volume": 0, "bias": "NO_EVENTS_TODAY"},
+    "ABSORB": {"count": 0, "volume": 0, "bias": "NO_EVENTS_TODAY"},
+    "CANCEL": {"count": 758, "volume": 203799, "bias": "ASK_1.51x"},
+    "LAYERING": {"count": 17, "volume": 13780, "bias": "MID_ZONE_60.1pct", "_source": "all_candidate_events.csv:rolling_layering_candidate"},
+    "TRF": {"count": 13, "volume": 136818, "bias": "MID_ZONE_65.9pct"},
+    "Liquidity Void": {"count": 0, "volume": 0, "bias": "NO_EVENTS_TODAY"},
+    "MATCHED": {"count": 6, "volume": 15544, "bias": "HIGH_ZONE_87.8pct"},
+    "CHURN": {"count": 24, "volume": 210777, "bias": "LOW_ZONE_88.2pct"}
+  }
+}
