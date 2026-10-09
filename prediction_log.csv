@@ -1,0 +1,2 @@
+date,ticker,predicted_direction,confidence,stop_price,trigger_events,actual_result,correct
+2026-10-08,CRDL,待验证(偏空盘整; 盘45/跌35/涨20),50,,"P007部分(HIGH Ask/Bid 9.82x@1.32; TRF 100K@1.33 near_bid); P001部分(09:30闪砸1.27); 转多>1.35放量 / 转空<1.27",,
