@@ -1,0 +1,2 @@
+date,ticker,predicted_direction,confidence,stop_price,trigger_events,actual_result,correct
+2026-10-08,ADCT,待验证(倾向1.53-1.65整理偏上),0.53,1.48,"P005主匹配; 回踩买1.53-1.54止损1.48止盈1.63; 突破>1.65站稳买止损1.58目标1.80; 失效=收盘<1.52",,
