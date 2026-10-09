@@ -1,0 +1,126 @@
+{
+  "_文件说明": "==================== Layer 4 · 机器输入文件 ====================",
+  "_本文件名": "CRDL_20261008_machine_input.json",
+  "_定位": "福尔摩斯的直接结构化输入，无需人工解读，供AI直接消费",
+  "scenario_inputs": {"direction_verdict": "NEUTRAL", "direction_lean": "SHORT_BIAS", "rolling_layering_count": 0, "rolling_layering_volume": 0, "liquidity_void_count": 0, "liquidity_void_volume": 0, "bilateral_absorption_count": 4, "wall_candidate_count": 59, "wall_candidate_bias": "BID"},
+  "critical_events_for_holmes": [
+    {"rank": 1, "event_id": "a7855172", "time_et": "15:48", "price": 1.28, "price_zone": "LOW", "volume": 169189, "type": "CANCEL_B_LOW_1948_2000", "ret_300s_ticks": 0.5, "vol_to_price_drive_ticks_per_10k": 0.03},
+    {"rank": 2, "event_id": "0d26060a", "time_et": "15:57", "price": 1.32, "price_zone": "HIGH", "volume": 59495, "type": "CANCEL_A_HIGH_1957_2000", "ret_300s_ticks": -1.0, "vol_to_price_drive_ticks_per_10k": -0.17},
+    {"rank": 3, "event_id": "ebae2b88", "time_et": "09:30", "price": 1.28, "price_zone": "LOW", "volume": 28001, "type": "CANCEL_B_LOW_1330_1330", "ret_300s_ticks": 2.0, "vol_to_price_drive_ticks_per_10k": 0.71},
+    {"rank": 4, "event_id": "1b8db2d8", "time_et": "09:30", "price": 1.31, "price_zone": "MID", "volume": 14797, "type": "CANCEL_A_MID_1330_1331", "ret_300s_ticks": 2.0, "vol_to_price_drive_ticks_per_10k": 1.35},
+    {"rank": 5, "event_id": "d248d835", "time_et": "10:48", "price": 1.33, "price_zone": "HIGH", "volume": 22946, "type": "TRF_N_HIGH_1448_1448", "ret_300s_ticks": 1.0, "vol_to_price_drive_ticks_per_10k": 0.44},
+    {"rank": 6, "event_id": "f0ca5706", "time_et": "15:58", "price": 1.31, "price_zone": "MID", "volume": 80815, "type": "CHURN_N_MID_1958_2000", "ret_300s_ticks": -0.5, "vol_to_price_drive_ticks_per_10k": -0.06},
+    {"rank": 7, "event_id": "d4da525e", "time_et": "15:54", "price": 1.3, "price_zone": "MID", "volume": 23339, "type": "CHURN_N_MID_1954_1955", "ret_300s_ticks": 1.5, "vol_to_price_drive_ticks_per_10k": 0.64}
+  ],
+  "bilateral_absorption_for_holmes": {
+    "_口径": "双向吸收按0721版计算（0721的旧冰山簇配对），不用V6冰山",
+    "ret_unit": "ticks",
+    "reaction_weights": {"ret_300s": 0.5, "ret_EOD": 0.5},
+    "top10": [
+      {
+        "bid_cluster": "FRAG_ICE_B_HIGH_1719_1719",
+        "ask_cluster": "FRAG_ICE+ICE_A_HIGH_1717_1721",
+        "time_range": "2026-10-08 17:19:03.913558893+00:00 ~ 2026-10-08 17:19:03.915966546+00:00",
+        "time_range_et": "13:19:03 ~ 13:19:03",
+        "bid_volume": 1300,
+        "ask_volume": 12768,
+        "price_mid": 1.32,
+        "price_zone": "HIGH",
+        "dominant_side": "A",
+        "volume_ratio": 0.1,
+        "ret_300s_after_pair_end": 0.5,
+        "ret_eod_after_pair_end": -1.5,
+        "weighted_ret_ticks": -0.5,
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Ask absorption (Ask/Bid=9.82) with minor Bid counter — HIGH zone single-side distribution, strongest distribution suspicion",
+        "interpretation_summary": "HIGH区A主导；Bid=1,300股，Ask=12,768股"
+      },
+      {
+        "bid_cluster": "FRAG_ICE+ICE_B_MID_1959_2000",
+        "ask_cluster": "FRAG_ICE+ICE_A_HIGH_1959_1959",
+        "time_range": "2026-10-08 19:59:11.500722472+00:00 ~ 2026-10-08 19:59:57.521077896+00:00",
+        "time_range_et": "15:59:11 ~ 15:59:57",
+        "bid_volume": 11605,
+        "ask_volume": 7541,
+        "price_mid": 1.31,
+        "price_zone": "MID",
+        "dominant_side": "B",
+        "volume_ratio": 1.54,
+        "ret_300s_after_pair_end": "",
+        "ret_eod_after_pair_end": -1.0,
+        "weighted_ret_ticks": "",
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Bid absorption (Bid/Ask=1.54) with minor Ask counter",
+        "interpretation_summary": "MID区B主导；Bid=11,605股，Ask=7,541股"
+      },
+      {
+        "bid_cluster": "RESERVE_B_HIGH_1337_1408",
+        "ask_cluster": "ICE_A_HIGH_1344_1348",
+        "time_range": "2026-10-08 13:44:46.812432845+00:00 ~ 2026-10-08 13:48:20.494272888+00:00",
+        "time_range_et": "09:44:46 ~ 09:48:20",
+        "bid_volume": 4000,
+        "ask_volume": 700,
+        "price_mid": 1.33,
+        "price_zone": "HIGH",
+        "dominant_side": "B",
+        "volume_ratio": 5.71,
+        "ret_300s_after_pair_end": 0.5,
+        "ret_eod_after_pair_end": -3.0,
+        "weighted_ret_ticks": -1.25,
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Bid absorption (Bid/Ask=5.71) with minor Ask counter — Bid support/propping at HIGH zone",
+        "interpretation_summary": "HIGH区B主导；Bid=4,000股，Ask=700股"
+      },
+      {
+        "bid_cluster": "ICE_B_MID_1923_1936",
+        "ask_cluster": "ICE_A_MID_1926_1927",
+        "time_range": "2026-10-08 19:26:54.056529166+00:00 ~ 2026-10-08 19:27:29.500558748+00:00",
+        "time_range_et": "15:26:54 ~ 15:27:29",
+        "bid_volume": 1200,
+        "ask_volume": 700,
+        "price_mid": 1.31,
+        "price_zone": "MID",
+        "dominant_side": "B",
+        "volume_ratio": 1.71,
+        "ret_300s_after_pair_end": -0.5,
+        "ret_eod_after_pair_end": -1.0,
+        "weighted_ret_ticks": -0.75,
+        "reaction_weights": {"ret_300s": 0.5, "ret_eod": 0.5},
+        "interpretation": "dominant Bid absorption (Bid/Ask=1.71) with minor Ask counter",
+        "interpretation_summary": "MID区B主导；Bid=1,200股，Ask=700股"
+      }
+    ],
+    "stats": {
+      "population": 4,
+      "p95": {"bid_volume": 10464.25, "ask_volume": 11983.95, "pair_total_volume": 18384.3},
+      "top10_strength": {"pair_count": 4, "bid_volume": 18105, "ask_volume": 21709, "net_bid_minus_ask": -3604, "bid_ask_volume_ratio": 0.83, "bid_dominant_pairs": 3, "ask_dominant_pairs": 1}
+    }
+  },
+  "wall_candidates_for_holmes": {
+    "definition": "A→C, size≥P99, lifetime>15s, price within day high/low ±5 ticks",
+    "count": 59,
+    "p99_size_threshold": 2020.93,
+    "price_bounds": {"lower": 1.22, "upper": 1.39, "day_low": 1.27, "day_high": 1.34, "tick_size": 0.01},
+    "by_side": {
+      "B": {"count": 30, "size": 246041},
+      "A": {"count": 29, "size": 194630}
+    },
+    "net_bid_minus_ask": 51411,
+    "bid_ask_size_ratio": 1.26,
+    "wall_bias": "BID",
+    "top10": [
+      {"rank": 1, "candidate_id": "636af94a6859", "order_key": "1318231765", "time": "15:58:37", "price": 1.34, "side": "A", "size": 31802, "lifetime_s": 82.507, "level": "A4"},
+      {"rank": 2, "candidate_id": "6d0cca8de9dd", "order_key": "1318231757", "time": "15:58:37", "price": 1.29, "side": "B", "size": 21700, "lifetime_s": 82.508, "level": "B3"},
+      {"rank": 3, "candidate_id": "10045448a163", "order_key": "1324721817", "time": "15:59:19", "price": 1.27, "side": "B", "size": 21700, "lifetime_s": 40.69, "level": "A1"},
+      {"rank": 4, "candidate_id": "45799f57c310", "order_key": "1301625493", "time": "15:56:02", "price": 1.28, "side": "B", "size": 12000, "lifetime_s": 237.858, "level": "B3"},
+      {"rank": 5, "candidate_id": "666f99fdb119", "order_key": "1297895121", "time": "15:55:24", "price": 1.28, "side": "B", "size": 12000, "lifetime_s": 38.436, "level": "B3"},
+      {"rank": 6, "candidate_id": "80f5ac05e2ad", "order_key": "3378799254987005", "time": "11:40:10", "price": 1.3, "side": "B", "size": 10100, "lifetime_s": 224.784, "level": "B1"},
+      {"rank": 7, "candidate_id": "83e9f8a55648", "order_key": "408211665", "time": "11:05:30", "price": 1.36, "side": "A", "size": 10000, "lifetime_s": 17670.228, "level": "OUTSIDE_L5"},
+      {"rank": 8, "candidate_id": "bf6220fc0e5f", "order_key": "408234993", "time": "11:05:30", "price": 1.38, "side": "A", "size": 10000, "lifetime_s": 17669.79, "level": "OUTSIDE_L5"},
+      {"rank": 9, "candidate_id": "0881fa5183c3", "order_key": "431806753", "time": "11:14:04", "price": 1.24, "side": "B", "size": 10000, "lifetime_s": 17156.215, "level": "OUTSIDE_L5"},
+      {"rank": 10, "candidate_id": "d8d34eb2cffb", "order_key": "431806633", "time": "11:14:04", "price": 1.27, "side": "B", "size": 10000, "lifetime_s": 17156.14, "level": "A1"}
+    ]
+  },
+  "rolling_layering_events_for_holmes": [],
+  "_注释_critical_events": "取自Layer2/3同一份T1排序结果的前10条，保证三层文件事件集合一致"
+}

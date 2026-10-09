@@ -1,0 +1,47 @@
+# ==================== Layer 2 · 三层分级事件表 ====================
+# 本文件名：CRDL_20261008_clusters_tiered.csv
+# 本文件在5层体系中的位置：第3个文件（总表见 CRDL_20261008_intelligence_brief.json 的 file_manifest 字段）
+# 其余4个文件：Layer0=CRDL_20261008_intelligence_brief.json(情报头文件（总表）) / Layer1=CRDL_20261008_narrative.md(叙事报告) / Layer3=CRDL_20261008_events_material.csv(精选事件明细表) / Layer4=CRDL_20261008_machine_input.json(机器输入文件)
+# 定位：替代旧 behavior_clusters.csv，按重要性(T1>T2>T3)分级，重点在前流水在后。
+# 本文件目录：T1层（重点先看·冰山和对倒在前，其后谎骗->TRF->流动性真空->收盘吸收） -> T2层（同排序，中等重要性） -> FAMILY_TOTAL_SUMMARY（按全部家族强制列出全层级汇总，不列明细）
+# 本文件内容概述：结构化事件簇表格，每行一个行为簇，含方向/量/回报/意图/置信度等字段，机器可读，用于按重要性快速筛选证据。
+# 排序原则：冰山->对倒->谎骗->TRF->流动性真空->收盘吸收->其余
+# 价格分带：LOW≤1.29 / MID 1.29-1.31 / HIGH≥1.31（日高1.34 日低1.27，源CSV的price_zone列按day_low/day_high等分三档计算）
+# T1/T2沿用原价格反应敏感度并按事件价换算为tick；T1 volume>10000，T2 volume>2000；T3=其余；底部汇总=T1+T2+T3全层级
+#
+# ========== T1层（重点先看·冰山和对倒在前） ==========
+cluster_id(事件簇编号),materiality_tier(重要性T1最高/T2中等/T3流水),event_type(行为类型),cluster_family(家族组合),candidate_side(方向B买A卖N中性),price_level(中位价$),price_zone(价带HIGH/MID/LOW),total_volume(总量股),event_count(簇内事件数),duration_s(持续秒),ret_300s(300秒移动tick),ret_60s(60秒移动tick),ret_30s(30秒移动tick),spoof_color(BLUE卖谎骗/RED买谎骗/YELLOW未确认/-),vol_to_price_drive(每万股推价tick),start_time(起始时间ET),venue_count(交易所数),confidence(置信度%)
+a7855172,T1,CANCEL_B_LOW_1948_2000,CANCEL,B,1.28,LOW,169189,49,694.3,0.5,0.0,0.0,RED,0.03,15:48,4,45.0
+0d26060a,T1,CANCEL_A_HIGH_1957_2000,CANCEL,A,1.32,HIGH,59495,11,177.3,-1.0,-1.0,0.5,BLUE,-0.17,15:57,2,45.0
+ebae2b88,T1,CANCEL_B_LOW_1330_1330,CANCEL,B,1.28,LOW,28001,10,54.2,2.0,-1.0,-3.0,RED,0.71,09:30,2,45.0
+1b8db2d8,T1,CANCEL_A_MID_1330_1331,CANCEL,A,1.31,MID,14797,3,85.6,2.0,-1.0,-3.0,BLUE,1.35,09:30,1,44.98
+d248d835,T1,TRF_N_HIGH_1448_1448,TRF,N,1.33,HIGH,22946,1,0.0,1.0,0.0,0.0,-,0.44,10:48,,50.0
+f0ca5706,T1,CHURN_N_MID_1958_2000,CHURN,N,1.31,MID,80815,2,114.0,-0.5,-0.5,1.0,-,-0.06,15:58,,55.5
+d4da525e,T1,CHURN_N_MID_1954_1955,CHURN,N,1.30,MID,23339,1,10.2,1.5,0.5,0.5,-,0.64,15:54,,60.0
+#
+# ========== T2层 ==========
+2be49729,T2,ICE_N+ICE_X_B_HIGH_1340_1340,ICE_N+ICE_X,B,1.32,HIGH,2319,3,0.0,1.0,0.0,0.0,-,4.31,09:40,3,54.33
+36121726,T2,CANCEL_A_HIGH_1954_1958,CANCEL,A,1.32,HIGH,6100,3,195.0,1.5,0.0,0.0,BLUE,2.46,15:54,2,45.0
+0092de56,T2,CANCEL_B_LOW_1936_1936,CANCEL,B,1.29,LOW,5500,1,0.0,-1.0,-1.0,-1.0,RED,-1.82,15:36,1,45.0
+6ce2847a,T2,TRF_N_HIGH_1340_1340,TRF,N,1.32,HIGH,5344,1,0.0,1.0,0.0,0.0,-,1.87,09:40,,25.69
+6b6d448e,T2,TRF_N_HIGH_1443_1444,TRF,N,1.32,HIGH,4800,1,59.0,-0.5,-0.5,0.0,-,-1.04,10:43,,24.6
+b93f1c84,T2,TRF_N_MID_1954_1954,TRF,N,1.29,MID,3300,1,5.9,2.0,0.5,0.5,-,6.06,15:54,,21.6
+4ab6c581,T2,CHURN_N_HIGH_1702_1702,CHURN,N,1.33,HIGH,9537,1,15.9,-1.0,-0.5,-0.5,-,-1.05,13:02,,35.0
+b31fb5bd,T2,CHURN_N_HIGH_1340_1340,CHURN,N,1.32,HIGH,9439,1,0.0,1.0,0.0,0.0,-,1.06,09:40,,47.0
+033a09e3,T2,CHURN_N_HIGH_1440_1441,CHURN,N,1.33,HIGH,4931,1,37.0,-0.5,0.0,0.0,-,-1.01,10:40,,43.0
+1ad393cb,T2,CHURN_N_MID_1800_1801,CHURN,N,1.30,MID,4060,1,53.7,-0.5,0.0,0.0,-,-1.23,14:00,,35.0
+#
+# ========== [FAMILY_TOTAL_SUMMARY] 按全部家族强制汇总（T1+T2+T3，count=0也列出） ==========
+# ICE_N: count=3 volume=3247
+# ICE_S1: count=1 volume=696
+# ICE_S2: count=1 volume=800
+# ICE_S3: count=0 volume=0
+# ICE_X: count=5 volume=6951
+# ICE_P: count=0 volume=0
+# ABSORB: count=0 volume=0
+# CANCEL: count=7 volume=299577
+# LAYERING: count=0 volume=0
+# TRF: count=8 volume=178577
+# Liquidity Void: count=0 volume=0
+# MATCHED: count=0 volume=0
+# CHURN: count=11 volume=144757
