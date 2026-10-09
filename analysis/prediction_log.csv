@@ -1,0 +1,2 @@
+date,ticker,predicted_direction,confidence,stop_price,trigger_events,actual_result,correct
+2026-10-08,SFIX,盘(2.63-2.83),0.55,2.61,"P001@12:41(时序5/5,验证1/2);托单出货@14:46;P007部分@15:27-15:59;矩阵洗2/派1无法鉴别",,
